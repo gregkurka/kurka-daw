@@ -10,12 +10,120 @@
   <body>
     <div class="daw-holder">
       <div class="main-window">
-        <div class="title-bar-daw">Kurka Daw</div>
-        <div class="main-menu-bar">Main Menu</div>
-        <div class="timeline">Timeline</div>
-        <div class="piano-roll">Piano Roll</div>
-        <div class="transport">Transport</div>
-        <div class="mixer">Mixer</div>
+        <div class="title-bar-daw">
+          <div class="title-bar">
+            <h1 class="title">Kurka-DAW</h1>
+          </div>
+        </div>
+        <div class="main-menu-bar">
+          <ul role="menu-bar">
+            <li role="menu-item" tabindex="0" aria-haspopup="true">
+              File
+              <ul role="menu">
+                <li role="menu-item"><a href="#menu">Action</a></li>
+                <li role="menu-item"><a href="#menu">Another Action</a></li>
+                <li role="menu-item" class="divider">
+                  <a href="#menu">Something else here</a>
+                </li>
+                <li role="menu-item">
+                  <a href="https://twitter.com/sakofchit">sakun's twitter</a>
+                </li>
+              </ul>
+            </li>
+            <li role="menu-item" tabindex="0" aria-haspopup="true">
+              Edit
+              <ul role="menu">
+                <li role="menu-item"><a href="#menu">Action</a></li>
+                <li role="menu-item"><a href="#menu">Another Action</a></li>
+                <li role="menu-item" class="divider">
+                  <a href="#menu">Something else here</a>
+                </li>
+                <li role="menu-item">
+                  <a href="https://sakun.co">sakun's projects</a>
+                </li>
+              </ul>
+            </li>
+            <li role="menu-item" tabindex="0" aria-haspopup="true">
+              View
+              <ul role="menu">
+                <li role="menu-item"><a href="#menu">Action</a></li>
+                <li role="menu-item"><a href="#menu">Another Action</a></li>
+                <li role="menu-item">
+                  <a href="#menu">Something else here</a>
+                </li>
+              </ul>
+            </li>
+            <li role="menu-item" tabindex="0" aria-haspopup="true">
+              Special
+              <ul role="menu">
+                <li role="menu-item"><a href="#menu">You</a></li>
+                <li role="menu-item"><a href="#menu">Get the</a></li>
+                <li role="menu-item"><a href="#menu">Idea</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="timeline">
+          <div class="title-bar">
+            <h2 class="title">Timeline</h2>
+          </div>
+        </div>
+        <div class="piano-roll">
+          <div class="title-bar">
+            <h2 class="title">Piano Roll</h2>
+          </div>
+        </div>
+        <div class="transport">
+          <div class="transport-grid">
+            <div class="title-bar">
+              <h2 class="title">Transport</h2>
+            </div>
+            <button class="btn">◄◄</button>
+            <button class="btn">■</button>
+            <button class="btn">►/❙❙</button>
+            <button class="btn">►►</button>
+            <button class="btn">●</button>
+            <section class="field-row trans-bpm">
+              <label for="BPM" class="modeless-text">BPM:</label>
+              <input
+                id="BPM"
+                type="text"
+                style="width: 30px"
+                placeholder="120"
+              />
+            </section>
+            <section class="field-row trans-sig" style="margin-top: 0px">
+              <label for="Sig" class="modeless-text">Sig:</label>
+              <input
+                id="TimeSig"
+                type="text"
+                style="width: 30px; padding-top: 0"
+                placeholder="4/4"
+              />
+            </section>
+
+            <!-- <div><button class="btn">◄ ◄</button></div>
+            <div><button class="btn">■</button></div>
+            <div><button class="btn">► / ❙❙</button></div>
+            <div><button class="btn">► ►</button></div>
+            <div><button class="btn">●</button></div>
+            <div>BPM:</div>
+            <div>Sig:</div>
+            <div>BPM:</div>
+            <div>Sig:</div>
+            <div>BPM:</div>
+            <div>Sig:</div>
+            <div>BPM:</div>
+            <div>Sig:</div>
+            <div>BPM:</div>
+            <div>Sig:</div> -->
+          </div>
+        </div>
+        <div class="mixer">
+          <div class="title-bar">
+            <h2 class="title">Mixer</h2>
+          </div>
+        </div>
       </div>
     </div>
   </body>
