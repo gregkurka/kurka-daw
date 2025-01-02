@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>80s Apple-Style Vertical Knob</title>
+    <style>
+      /* Container mimicking an old-school Mac GUI window/box */
+      .knob-container {
+        width: 48px;
+        height: 180px;
+        border: 2px solid black;
+        position: relative;
+        background-color: #fff;
+        font-family: "Chicago", "Geneva", sans-serif; /* or your preferred retro font */
+        box-sizing: border-box;
+        /* Optionally give it a little padding inside */
+        padding: 4px;
+      }
+
+      /* Top & bottom speaker icons */
+      .speaker-icon-top,
+      .speaker-icon-bottom {
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        position: absolute;
+        left: 0;
+      }
+
+      .speaker-icon-top {
+        top: 4px;
+      }
+
+      .speaker-icon-bottom {
+        bottom: 4px;
+      }
+
+      /* Slider track with a 'dithered' background to simulate old Apple shading */
+      .slider-track {
+        position: absolute;
+        top: 32px; /* leaves space for the top speaker icon */
+        bottom: 32px; /* leaves space for the bottom speaker icon */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10px;
+        border: 1px solid #000;
+        /* Repeating linear gradient to mimic 1-bit dithering */
+        background: repeating-linear-gradient(
+          45deg,
+          #fff 0px,
+          #fff 2px,
+          #000 2px,
+          #000 4px
+        );
+      }
+
+      /* The draggable handle (the knob) */
+      .slider-handle {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 18px;
+        height: 10px;
+        background-color: #ccc; /* thumb color */
+        border: 1px solid #000;
+        cursor: pointer;
+      }
+
+      /* The vertical scale on the left (0–7). Adjust positioning if desired. */
+      .scale {
+        position: absolute;
+        top: 32px;
+        bottom: 32px;
+        left: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        font-size: 10px;
+        line-height: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="knob-container" id="knob">
+      <!-- Speaker icons (you can replace with your own symbols or images) -->
+      <div class="speaker-icon-top">🔊</div>
+      <div class="speaker-icon-bottom">🔊</div>
+
+      <!-- Scale on the left side: 7 down to 0 -->
+      <div class="scale">
+        <div>7</div>
+        <div>6</div>
+        <div>5</div>
+        <div>4</div>
+        <div>3</div>
+        <div>2</div>
+        <div>1</div>
+        <div>0</div>
+      </div>
+
+      <!-- The slider track -->
+      <div class="slider-track"></div>
+
+      <!-- The draggable slider handle; starts near the middle (50%) -->
+      <div class="slider-handle" id="handle" style="top: 50%"></div>
+    </div>
+
+    <script>
+      (function () {
+        const container = document.getElementById("knob");
+        const handle = document.getElementById("handle");
+
+        let isDragging = false;
+        let containerRect = null;
+        let minY = 0;
+        let maxY = 0;
+
+        handle.addEventListener("mousedown", (e) => {
+          isDragging = true;
+          containerRect = container.getBoundingClientRect();
+
+          // The track starts at 32px from the top and ends 32px from the bottom.
+          // We also account for the height of the handle itself.
+          minY = 32;
+          maxY = containerRect.height - 32 - handle.offsetHeight;
+
+          document.addEventListener("mousemove", onMouseMove);
+          document.addEventListener("mouseup", onMouseUp);
+          e.preventDefault(); // Prevent text selection
+        });
+
+        function onMouseMove(e) {
+          if (!isDragging) return;
+
+          // Calculate the new Y position relative to the container’s top
+          const offsetY = e.clientY - containerRect.top;
+          // Clamp the offset between minY and maxY
+          let newY = offsetY - handle.offsetHeight / 2;
+          if (newY < minY) newY = minY;
+          if (newY > maxY) newY = maxY;
+
+          handle.style.top = newY + "px";
+
+          // (Optional) Do something with the "value," e.g.,
+          // Convert to a 0-7 scale based on newY
+          // let percent = (newY - minY) / (maxY - minY);
+          // let value = Math.round(percent * 7);
+          // console.log('Volume level:', value);
+        }
+
+        function onMouseUp() {
+          isDragging = false;
+          document.removeEventListener("mousemove", onMouseMove);
+          document.removeEventListener("mouseup", onMouseUp);
+        }
+      })();
+    </script>
+  </body>
+</html>
