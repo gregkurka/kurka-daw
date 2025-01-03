@@ -188,6 +188,7 @@ body {
   display: none;
 }
 
+/*moves mixer slider*/
 .mixer-slider {
   accent-color: black;
   transform: rotate(-90deg) scale(1.6) translate(-90px, -9px); /* Rotate for vertical orientation */
