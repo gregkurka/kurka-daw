@@ -151,6 +151,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 100px;
+  height: 640px;
   border: 2px black solid;
   border-right: 0px;
   align-items: center;
@@ -170,10 +171,24 @@ body {
 
 .portion > * {
   padding: 0px;
-  margin: 0 auto;
+  margin: 0px auto;
   font-family: Chicago_12;
 }
 
 .portion > select {
   padding-left: 5px;
+  width: 95px;
+}
+
+/* gets rid of double scrollbar buttons*/
+::-webkit-scrollbar-button:vertical:start:increment,
+::-webkit-scrollbar-button:vertical:end:decrement,
+::-webkit-scrollbar-button:horizontal:start:increment,
+::-webkit-scrollbar-button:horizontal:end:decrement {
+  display: none;
+}
+
+.mixer-slider {
+  accent-color: black;
+  transform: rotate(-90deg) scale(1.6) translate(-90px, -9px); /* Rotate for vertical orientation */
 }
