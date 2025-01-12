@@ -71,6 +71,59 @@ body {
   border: 1px black solid;
 }
 
+.timeline-holder {
+  display: grid;
+  grid-template-columns: 2fr 7fr;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 93%; /* Ensure it takes up the intended height */
+  overflow-x: hidden;
+}
+
+.track-list {
+  border-right: 2px solid black;
+  width: 100%;
+}
+
+.track-timeline {
+  display: flex;
+  padding-left: 10px;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  height: 30px;
+}
+
+.track-timeline > p {
+  margin: auto;
+}
+
+.track-timeline > .btn {
+  font-size: 0.75em;
+  padding: 0;
+  margin: 1px;
+  min-height: 0px;
+  min-width: 0px;
+  overflow: hidden;
+}
+
+.ruler-spacer {
+  height: 15px;
+}
+
+.timeline-ruler {
+  height: 15px;
+  border-bottom: 2px solid black;
+}
+
+.event-grid {
+  height: 60px;
+}
+
+.event-grid-item {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  height: 29px;
+}
+
 .piano-roll {
   /*grid-area: row-start / column-start / row-end / column-end;*/
   grid-area: 16 / 7 / 29 / 29;
