@@ -1,3 +1,7 @@
+* {
+  font-family: Chicago_12;
+}
+
 /*Everything starting here ensures the elements below will be centered and change with the
 size of the window */
 html,
@@ -72,6 +76,64 @@ body {
   grid-area: 16 / 7 / 29 / 29;
   display: block;
   border: 1px black solid;
+}
+
+.piano-roll-holder {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 93%; /* Ensure it takes up the intended height */
+}
+
+.piano-display {
+  display: flex;
+  flex-direction: column; /* Arrange the keys vertically */
+  position: relative;
+}
+
+.white-key {
+  border: 2px black solid;
+  height: 36px;
+  flex-shrink: 0; /* Prevent the keys from shrinking */
+}
+
+.black-key-holder {
+  position: absolute;
+  top: 68px;
+  width: 59%;
+}
+
+.black-key {
+  background-color: black;
+  height: 20px;
+}
+
+.black-key-1 {
+  background-color: black;
+  height: 20px;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.black-key-2 {
+  background-color: black;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
+.piano-roll-time-ruler {
+  display: absolute;
+  border: 1px solid black;
+}
+
+.piano-roll-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 4fr);
+  grid-template-rows: repeat(88, 20px);
+}
+
+.piano-roll-block {
+  border: 1px solid black;
 }
 
 .transport {
