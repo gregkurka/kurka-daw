@@ -82,13 +82,15 @@ body {
   display: grid;
   grid-template-columns: 1fr 7fr;
   overflow-y: auto; /* Enable vertical scrolling */
-  height: 93%; /* Ensure it takes up the intended height */
+  height: 88.5%; /* Ensure it takes up the intended height */
+  overflow-x: hidden;
 }
 
 .piano-display {
   display: flex;
   flex-direction: column; /* Arrange the keys vertically */
   position: relative;
+  width: 80px;
 }
 
 .white-key {
@@ -97,9 +99,17 @@ body {
   flex-shrink: 0; /* Prevent the keys from shrinking */
 }
 
+.first-white-key {
+  height: 16px;
+}
+
+.small-white-key {
+  height: 26px;
+}
+
 .black-key-holder {
   position: absolute;
-  top: 68px;
+  top: 40px;
   width: 59%;
 }
 
@@ -111,7 +121,7 @@ body {
 .black-key-1 {
   background-color: black;
   height: 20px;
-  margin-top: 60px;
+  margin-top: 40px;
   margin-bottom: 20px;
 }
 
@@ -128,8 +138,9 @@ body {
 
 .piano-roll-grid {
   display: grid;
-  grid-template-columns: repeat(10, 4fr);
+  grid-template-columns: repeat(20, 60px);
   grid-template-rows: repeat(88, 20px);
+  overflow-x: scroll;
 }
 
 .piano-roll-block {
