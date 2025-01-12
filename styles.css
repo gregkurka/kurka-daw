@@ -1,3 +1,7 @@
+* {
+  font-family: Chicago_12;
+}
+
 /*Everything starting here ensures the elements below will be centered and change with the
 size of the window */
 html,
@@ -72,6 +76,75 @@ body {
   grid-area: 16 / 7 / 29 / 29;
   display: block;
   border: 1px black solid;
+}
+
+.piano-roll-holder {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  overflow-y: auto; /* Enable vertical scrolling */
+  height: 88.5%; /* Ensure it takes up the intended height */
+  overflow-x: hidden;
+}
+
+.piano-display {
+  display: flex;
+  flex-direction: column; /* Arrange the keys vertically */
+  position: relative;
+  width: 80px;
+}
+
+.white-key {
+  border: 2px black solid;
+  height: 36px;
+  flex-shrink: 0; /* Prevent the keys from shrinking */
+}
+
+.first-white-key {
+  height: 16px;
+}
+
+.small-white-key {
+  height: 26px;
+}
+
+.black-key-holder {
+  position: absolute;
+  top: 40px;
+  width: 59%;
+}
+
+.black-key {
+  background-color: black;
+  height: 20px;
+}
+
+.black-key-1 {
+  background-color: black;
+  height: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.black-key-2 {
+  background-color: black;
+  height: 20px;
+  margin-bottom: 20px;
+}
+
+.piano-roll-time-ruler {
+  display: absolute;
+  border: 1px solid black;
+}
+
+.piano-roll-grid {
+  display: grid;
+  grid-template-columns: repeat(20, 60px);
+  grid-template-rows: repeat(88, 20px);
+  overflow-x: scroll;
+}
+
+.piano-roll-block {
+  border: 1px solid black;
 }
 
 .transport {
