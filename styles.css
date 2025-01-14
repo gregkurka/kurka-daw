@@ -189,15 +189,9 @@ body {
   border: 1px solid black;
 }
 
-.piano-roll-grid {
-  display: grid;
-  grid-template-columns: repeat(20, 60px);
-  grid-template-rows: repeat(88, 20px);
-  overflow-x: scroll;
-}
-
-.piano-roll-block {
-  border: 1px solid black;
+#piano-roll-canvas {
+  border: 1px solid black; /* Optional */
+  display: block; /* Ensures the canvas behaves like a block element */
 }
 
 .transport {
